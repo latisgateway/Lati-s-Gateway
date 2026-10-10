@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#183d32">
+  <meta name="description" content="Lati's Gateway accompagne les candidats dans la préparation de leurs candidatures et de leur projet professionnel.">
+  <title>Lati's Gateway | Accompagnement professionnel</title>
+  <style>
+    :root{--green:#183d32;--green2:#285746;--pale:#e8f0eb;--cream:#faf8f2;--white:#fff;--gold:#c39a56;--text:#28352f;--muted:#69736d;--border:#e5e7e1}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--text);line-height:1.75}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,90%);margin:auto}
+    .header{position:sticky;top:0;z-index:10;background:rgba(250,248,242,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+    .navbar{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:11px;color:var(--green);font-size:19px;font-weight:800}
+    .brand-mark{width:43px;height:43px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:13px 4px 13px 4px;font-size:15px;letter-spacing:-1px}
+    .brand small{display:block;color:var(--muted);font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase}
+    .nav-links{display:flex;align-items:center;gap:19px;font-size:13px;font-weight:700}
+    .nav-links>a:hover,.footer a:hover{color:var(--gold)}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 19px;border:1px solid var(--green);border-radius:5px;background:var(--green);color:var(--white);font-size:13px;font-weight:700;transition:.2s ease}
+    .button:hover{background:var(--green2);transform:translateY(-2px)}
+    .button-outline{background:transparent;color:var(--green)}.button-outline:hover{color:white}
+    .lang-switch{display:flex;gap:4px;padding:4px;border:1px solid var(--border);border-radius:7px;background:white}
+    .lang-switch button{border:0;background:transparent;border-radius:4px;padding:6px 8px;font-weight:700;font-size:12px;color:var(--muted);cursor:pointer}
+    .lang-switch button.active{background:var(--green);color:white}
+    .hero{padding:94px 0 88px;background:radial-gradient(circle at 88% 22%,#e7e0ce 0,transparent 27%),var(--cream);overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:65px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--green);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+    .eyebrow:before{content:"";width:26px;height:2px;background:var(--gold)}
+    h1{max-width:690px;margin:23px 0;color:var(--green);font-family:Georgia,"Times New Roman",serif;font-size:clamp(39px,5vw,64px);font-weight:500;letter-spacing:-1.8px;line-height:1.16}
+    h1 span{color:inherit;font-style:normal}h1 .highlight{color:var(--gold);font-style:italic}
+    .hero-text{max-width:570px;margin-bottom:28px;color:var(--muted);font-size:16px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-note{display:flex;align-items:center;gap:9px;margin-top:22px;color:var(--muted);font-size:12px}.hero-note span{color:var(--gold);font-size:18px}
+    .hero-card{position:relative;padding:32px;border:1px solid #e4dfd1;border-radius:8px;background:white;box-shadow:0 25px 60px rgba(24,61,50,.08)}
+    .hero-card:before{position:absolute;top:-10px;right:-10px;z-index:-1;width:100%;height:100%;border:1px solid var(--gold);border-radius:8px;content:""}
+    .card-label{color:var(--gold);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+    .hero-card h2{margin:12px 0 20px;color:var(--green);font-family:Georgia,serif;font-size:26px;font-weight:500;line-height:1.4}
+    .benefit{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--border);font-size:13px}
+    .check{flex:0 0 24px;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--pale);color:var(--green);font-weight:800}
+    section{padding:82px 0}.services{background:white}
+    .section-heading{max-width:680px;margin:0 auto 42px;text-align:center}.section-heading h2{margin:14px 0;color:var(--green);font-family:Georgia,serif;font-size:clamp(30px,4vw,43px);font-weight:500;line-height:1.3}.section-heading p{color:var(--muted);font-size:14px}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .service-card{padding:24px 20px;border:1px solid var(--border);border-radius:6px;background:white;transition:.2s ease}.service-card:hover{transform:translateY(-4px);border-color:#cbb78e;box-shadow:0 15px 35px rgba(24,61,50,.06)}
+    .service-number{display:inline-grid;place-items:center;width:39px;height:39px;margin-bottom:18px;border-radius:50%;background:var(--pale);color:var(--green);font-size:12px;font-weight:800}
+    .service-card h3{margin-bottom:10px;color:var(--green);font-size:16px;line-height:1.55}.service-card p{color:var(--muted);font-size:13px;line-height:1.85}
+    .training{margin-top:26px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:25px;border-radius:6px;background:var(--green);color:white}.training h3{margin-bottom:8px;font-family:Georgia,serif;font-size:24px;font-weight:500}.training p{max-width:700px;color:#d8e3dc;font-size:13px}.training .button{flex-shrink:0;border-color:var(--gold);background:var(--gold);color:#172d23}
+    .approach-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:70px}.approach h2{margin:15px 0 20px;color:var(--green);font-family:Georgia,serif;font-size:clamp(30px,4vw,42px);font-weight:500;line-height:1.3}.approach p{margin-bottom:16px;color:var(--muted);font-size:14px}
+    .steps{display:grid;gap:18px}.step{display:flex;gap:17px;padding:20px;border:1px solid var(--border);border-radius:6px;background:white}.step-number{flex:0 0 39px;display:grid;place-items:center;width:39px;height:39px;border-radius:50%;background:var(--green);color:white;font-weight:700}.step h3{margin-bottom:5px;color:var(--green);font-size:15px}.step p{margin:0;color:var(--muted);font-size:13px}
+    .cta-section{padding:0 0 82px}.cta{padding:58px 28px;border:1px solid #e7dcc5;border-radius:8px;background:#f0ece1;text-align:center}.cta h2{margin:15px 0;color:var(--green);font-family:Georgia,serif;font-size:clamp(30px,4vw,42px);font-weight:500;line-height:1.3}.cta p{max-width:650px;margin:0 auto 25px;color:var(--muted);font-size:14px}.contact-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+    .footer{padding:32px 0;background:#122f27;color:white}.footer-content{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}.footer .brand{color:white}.footer .brand small{color:#bdc9c1}.footer p,.footer a{color:#c5d2ca;font-size:12px}.footer-bottom{margin-top:23px;padding-top:19px;border-top:1px solid #365348;color:#aebdb4;font-size:11px;text-align:center}
+    [dir="rtl"] body{font-family:Tahoma,Arial,sans-serif}[dir="rtl"] .eyebrow{letter-spacing:0}[dir="rtl"] h1{letter-spacing:0;line-height:1.45}[dir="rtl"] h1 .highlight{font-style:normal}[dir="rtl"] .brand small{letter-spacing:0}[dir="rtl"] .hero-card:before{right:auto;left:-10px}[dir="rtl"] .benefit,[dir="rtl"] .step,[dir="rtl"] .hero-note{flex-direction:row}[dir="rtl"] .service-card,[dir="rtl"] .step{text-align:right}[dir="rtl"] .footer-bottom{text-align:center}
+    @media(max-width:900px){.hero-grid,.approach-grid{grid-template-columns:1fr;gap:38px}.hero{padding:70px 0}.hero-card{max-width:600px}.service-grid{grid-template-columns:repeat(2,1fr)}.nav-links{gap:10px}.nav-links>a:not(.button){display:none}}
+    @media(max-width:560px){.navbar{min-height:68px;gap:8px}.brand{font-size:15px;gap:7px}.brand-mark{width:36px;height:36px}.nav-links .button{display:none}.lang-switch button{padding:6px}.hero{padding:55px 0}h1{font-size:40px}section{padding:60px 0}.service-grid{grid-template-columns:1fr}.training{align-items:flex-start;flex-direction:column;padding:25px}.hero-card{padding:24px}.cta{padding:40px 20px}.section-heading{margin-bottom:30px}}
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="container navbar">
+    <a class="brand" href="#accueil" aria-label="Lati's Gateway">
+      <span class="brand-mark" aria-hidden="true">LG</span>
+      <span>Lati's Gateway<small data-i18n="brand_tag">Accompagnement professionnel</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation">
+      <a href="#accueil" data-i18n="nav_home">Accueil</a>
+      <a href="#services" data-i18n="nav_services">Nos services</a>
+      <a href="#methode" data-i18n="nav_method">Notre approche</a>
+      <a class="button" href="#contact" data-i18n="nav_contact">Nous contacter ↗</a>
+      <div class="lang-switch" aria-label="Choisir la langue">
+        <button type="button" id="btn-fr" class="active" aria-pressed="true">FR</button>
+        <button type="button" id="btn-ar" aria-pressed="false">العربية</button>
+      </div>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="hero" id="accueil">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow" data-i18n="eyebrow">Votre accompagnement professionnel</div>
+        <h1><span class="plain" data-i18n="hero_title1">Votre parcours mérite</span><br><span class="highlight" data-i18n="hero_title2">une présentation à la hauteur.</span></h1>
+        <p class="hero-text" data-i18n="hero_text">Vous recherchez des opportunités professionnelles en Algérie ou à l'étranger ? Lati's Gateway vous accompagne pour valoriser vos compétences, préparer vos candidatures et avancer avec une démarche structurée.</p>
+        <div class="hero-actions">
+          <a class="button" href="#services" data-i18n="hero_button1">Découvrir nos services →</a>
+          <a class="button button-outline" href="#methode" data-i18n="hero_button2">Notre méthode</a>
+        </div>
+        <p class="hero-note"><span>✦</span><span data-i18n="hero_note">Des outils personnalisés, un parcours qui vous ressemble.</span></p>
+      </div>
+      <div class="hero-card">
+        <div class="card-label" data-i18n="card_label">Préparez votre prochaine étape</div>
+        <h2 data-i18n="card_title">Votre profil. Vos compétences. Vos ambitions.</h2>
+        <div class="benefit"><span class="check">✓</span><span data-i18n="benefit1">Des documents professionnels adaptés à votre objectif.</span></div>
+        <div class="benefit"><span class="check">✓</span><span data-i18n="benefit2">Une candidature claire, cohérente et structurée.</span></div>
+        <div class="benefit"><span class="check">✓</span><span data-i18n="benefit3">Des conseils pratiques pour mieux vous préparer.</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-heading"><div class="eyebrow" data-i18n="services_eyebrow">Nos services</div><h2 data-i18n="services_title">Les bons outils pour faire avancer votre candidature</h2><p data-i18n="services_intro">Chaque parcours est différent. Nos services s'adaptent à votre profil, à vos objectifs et aux opportunités que vous ciblez.</p></div>
+      <div class="service-grid">
+        <article class="service-card"><span class="service-number">01</span><h3 data-i18n="s1_title">CV professionnel et ATS</h3><p data-i18n="s1_text">Un CV clair, structuré et adapté au poste visé, avec des mots-clés pertinents et une présentation fidèle à votre parcours.</p></article>
+        <article class="service-card"><span class="service-number">02</span><h3 data-i18n="s2_title">Lettre de motivation</h3><p data-i18n="s2_text">Une lettre personnalisée qui relie vos compétences, votre motivation et les besoins de l'employeur.</p></article>
+        <article class="service-card"><span class="service-number">03</span><h3 data-i18n="s3_title">Profil LinkedIn</h3><p data-i18n="s3_text">Une présentation professionnelle cohérente pour mieux valoriser vos expériences, compétences et objectifs.</p></article>
+        <article class="service-card"><span class="service-number">04</span><h3 data-i18n="s4_title">Portfolio professionnel</h3><p data-i18n="s4_text">Une présentation organisée de vos projets, réalisations et compétences pour montrer concrètement votre travail.</p></article>
+        <article class="service-card"><span class="service-number">05</span><h3 data-i18n="s5_title">Messages aux recruteurs</h3><p data-i18n="s5_text">Des messages professionnels pour contacter les entreprises et les recruteurs avec une approche adaptée.</p></article>
+        <article class="service-card"><span class="service-number">06</span><h3 data-i18n="s6_title">Organisation de la recherche d'emploi</h3><p data-i18n="s6_text">Des conseils pour identifier les offres pertinentes, organiser vos candidatures et suivre vos démarches.</p></article>
+        <article class="service-card"><span class="service-number">07</span><h3 data-i18n="s7_title">Préparation aux entretiens</h3><p data-i18n="s7_text">Entraînement aux questions fréquentes et conseils pour présenter vos atouts avec clarté et confiance.</p></article>
+        <article class="service-card"><span class="service-number">08</span><h3 data-i18n="s8_title">Ateliers et formations pratiques</h3><p data-i18n="s8_text">Des contenus pratiques pour développer vos compétences de recherche d'emploi et mieux préparer vos candidatures à l'étranger.</p></article>
+      </div>
+      <div class="training"><div><h3 data-i18n="training_title">Apprenez à mieux préparer vos candidatures</h3><p data-i18n="training_text">Découvrez des conseils et des ateliers pratiques pour mieux comprendre la recherche d'emploi et gagner en autonomie.</p></div><a class="button" href="#contact" data-i18n="training_button">Se renseigner ↗</a></div>
+    </div>
+  </section>
+  <section id="methode">
+    <div class="container approach-grid">
+      <div class="approach"><div class="eyebrow" data-i18n="method_eyebrow">Notre approche</div><h2 data-i18n="method_title">Un accompagnement pensé autour de votre objectif.</h2><p data-i18n="method_text1">Votre candidature doit refléter qui vous êtes réellement : vos compétences, votre expérience, vos projets et votre potentiel.</p><p data-i18n="method_text2">Nous privilégions une approche personnalisée, fondée sur la clarté, la cohérence et la valorisation honnête de votre parcours.</p><a class="button" href="#contact" data-i18n="method_button">Parlons de votre projet →</a></div>
+      <div class="steps">
+        <div class="step"><span class="step-number">1</span><div><h3 data-i18n="step1_title">Comprendre votre objectif</h3><p data-i18n="step1_text">Identifier le poste, le secteur ou le type d'opportunité visé.</p></div></div>
+        <div class="step"><span class="step-number">2</span><div><h3 data-i18n="step2_title">Identifier vos atouts</h3><p data-i18n="step2_text">Mettre en valeur les compétences et expériences pertinentes.</p></div></div>
+        <div class="step"><span class="step-number">3</span><div><h3 data-i18n="step3_title">Préparer vos outils</h3><p data-i18n="step3_text">Travailler sur les documents et les éléments utiles à votre candidature.</p></div></div>
+        <div class="step"><span class="step-number">4</span><div><h3 data-i18n="step4_title">Vous aider à avancer</h3><p data-i18n="step4_text">Repartir avec une meilleure organisation et des outils adaptés à votre démarche.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-section" id="contact">
+    <div class="container"><div class="cta"><div class="eyebrow" data-i18n="contact_eyebrow">Votre prochaine étape commence ici</div><h2 data-i18n="contact_title">Parlons de votre projet professionnel.</h2><p data-i18n="contact_text">Présentez-nous votre objectif et vos besoins. Nous pourrons identifier les services les plus adaptés à votre situation. Tarifs communiqués sur demande.</p><div class="contact-actions"><a class="button" href="mailto:latisgateway@gmail.com?subject=Demande%20d'information%20-%20Lati's%20Gateway" data-i18n="email_button">Nous contacter par e-mail ↗</a><a class="button button-outline" href="https://www.instagram.com/latis.gateway/" target="_blank" rel="noopener noreferrer" data-i18n="instagram_button">Nous retrouver sur Instagram ↗</a></div></div></div>
+  </section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-content"><a class="brand" href="#accueil"><span class="brand-mark" aria-hidden="true">LG</span><span>Lati's Gateway<small data-i18n="brand_tag">Accompagnement professionnel</small></span></a><p data-i18n="footer_text">Des outils professionnels pour mieux préparer votre avenir.</p><a href="mailto:latisgateway@gmail.com">latisgateway@gmail.com</a><a href="https://www.instagram.com/latis.gateway/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div><div class="footer-bottom"><span data-i18n="copyright">© 2026 Lati's Gateway. Tous droits réservés.</span><br><span data-i18n="disclaimer">Nos services accompagnent vos démarches sans garantir l'obtention d'un emploi, d'un contrat ou d'un visa.</span></div></div></footer>
+<script>
+  const translations = {
+    fr: {
+      brand_tag:"Accompagnement professionnel",nav_home:"Accueil",nav_services:"Nos services",nav_method:"Notre approche",nav_contact:"Nous contacter ↗",
+      eyebrow:"Votre accompagnement professionnel",hero_title1:"Votre parcours mérite",hero_title2:"une présentation à la hauteur.",hero_text:"Vous recherchez des opportunités professionnelles en Algérie ou à l'étranger ? Lati's Gateway vous accompagne pour valoriser vos compétences, préparer vos candidatures et avancer avec une démarche structurée.",hero_button1:"Découvrir nos services →",hero_button2:"Notre méthode",hero_note:"Des outils personnalisés, un parcours qui vous ressemble.",card_label:"Préparez votre prochaine étape",card_title:"Votre profil. Vos compétences. Vos ambitions.",benefit1:"Des documents professionnels adaptés à votre objectif.",benefit2:"Une candidature claire, cohérente et structurée.",benefit3:"Des conseils pratiques pour mieux vous préparer.",
+      services_eyebrow:"Nos services",services_title:"Les bons outils pour faire avancer votre candidature",services_intro:"Chaque parcours est différent. Nos services s'adaptent à votre profil, à vos objectifs et aux opportunités que vous ciblez.",s1_title:"CV professionnel et ATS",s1_text:"Un CV clair, structuré et adapté au poste visé, avec des mots-clés pertinents et une présentation fidèle à votre parcours.",s2_title:"Lettre de motivation",s2_text:"Une lettre personnalisée qui relie vos compétences, votre motivation et les besoins de l'employeur.",s3_title:"Profil LinkedIn",s3_text:"Une présentation professionnelle cohérente pour mieux valoriser vos expériences, compétences et objectifs.",s4_title:"Portfolio professionnel",s4_text:"Une présentation organisée de vos projets, réalisations et compétences pour montrer concrètement votre travail.",s5_title:"Messages aux recruteurs",s5_text:"Des messages professionnels pour contacter les entreprises et les recruteurs avec une approche adaptée.",s6_title:"Organisation de la recherche d'emploi",s6_text:"Des conseils pour identifier les offres pertinentes, organiser vos candidatures et suivre vos démarches.",s7_title:"Préparation aux entretiens",s7_text:"Entraînement aux questions fréquentes et conseils pour présenter vos atouts avec clarté et confiance.",s8_title:"Ateliers et formations pratiques",s8_text:"Des contenus pratiques pour développer vos compétences de recherche d'emploi et mieux préparer vos candidatures à l'étranger.",training_title:"Apprenez à mieux préparer vos candidatures",training_text:"Découvrez des conseils et des ateliers pratiques pour mieux comprendre la recherche d'emploi et gagner en autonomie.",training_button:"Se renseigner ↗",
+      method_eyebrow:"Notre approche",method_title:"Un accompagnement pensé autour de votre objectif.",method_text1:"Votre candidature doit refléter qui vous êtes réellement : vos compétences, votre expérience, vos projets et votre potentiel.",method_text2:"Nous privilégions une approche personnalisée, fondée sur la clarté, la cohérence et la valorisation honnête de votre parcours.",method_button:"Parlons de votre projet →",step1_title:"Comprendre votre objectif",step1_text:"Identifier le poste, le secteur ou le type d'opportunité visé.",step2_title:"Identifier vos atouts",step2_text:"Mettre en valeur les compétences et expériences pertinentes.",step3_title:"Préparer vos outils",step3_text:"Travailler sur les documents et les éléments utiles à votre candidature.",step4_title:"Vous aider à avancer",step4_text:"Repartir avec une meilleure organisation et des outils adaptés à votre démarche.",contact_eyebrow:"Votre prochaine étape commence ici",contact_title:"Parlons de votre projet professionnel.",contact_text:"Présentez-nous votre objectif et vos besoins. Nous pourrons identifier les services les plus adaptés à votre situation. Tarifs communiqués sur demande.",email_button:"Nous contacter par e-mail ↗",instagram_button:"Nous retrouver sur Instagram ↗",footer_text:"Des outils professionnels pour mieux préparer votre avenir.",copyright:"© 2026 Lati's Gateway. Tous droits réservés.",disclaimer:"Nos services accompagnent vos démarches sans garantir l'obtention d'un emploi, d'un contrat ou d'un visa."
+    },
+    ar: {
+      brand_tag:"مرافقة مهنية",nav_home:"الرئيسية",nav_services:"خدماتنا",nav_method:"منهجيتنا",nav_contact:"تواصلي معنا ↗",
+      eyebrow:"مرافقتك المهنية",hero_title1:"مسارك المهني يستحق",hero_title2:"أن يُعرض بأفضل صورة.",hero_text:"هل تبحث عن فرص عمل في الجزائر أو خارجها؟ تساعدك Lati’s Gateway على إبراز مهاراتك، وإعداد ملفات ترشحك، وتنظيم خطواتك المهنية بطريقة واضحة.",hero_button1:"اكتشف خدماتنا ←",hero_button2:"منهجيتنا",hero_note:"أدوات مخصصة لمسار يشبهك ويعبّر عنك.",card_label:"استعد لخطوتك القادمة",card_title:"ملفك. مهاراتك. طموحاتك.",benefit1:"وثائق مهنية تناسب هدفك الوظيفي.",benefit2:"ترشح واضح ومنظم ومتناسق.",benefit3:"إرشادات عملية تساعدك على الاستعداد بشكل أفضل.",
+      services_eyebrow:"خدماتنا",services_title:"الأدوات المناسبة لتطوير ترشحك المهني",services_intro:"لكل مسار خصوصيته. نكيّف خدماتنا وفق مؤهلاتك وأهدافك والفرص التي تسعى إليها.",s1_title:"سيرة ذاتية احترافية ومتوافقة مع ATS",s1_text:"سيرة ذاتية واضحة ومنظمة ومناسبة للمنصب المستهدف، بكلمات مفتاحية ملائمة تعكس مسارك الحقيقي.",s2_title:"رسالة تحفيزية مخصصة",s2_text:"رسالة تربط بين مهاراتك ودوافعك واحتياجات جهة التوظيف بطريقة مهنية.",s3_title:"إنشاء وتحسين حساب LinkedIn",s3_text:"عرض مهني متناسق يساعد على إبراز خبراتك ومهاراتك وأهدافك.",s4_title:"بورتفوليو مهني",s4_text:"تنظيم مشاريعك وأعمالك ومهاراتك في عرض واضح يُظهر ما أنجزته فعليًا.",s5_title:"رسائل التواصل مع مسؤولي التوظيف",s5_text:"صياغة رسائل مهنية للتواصل مع الشركات ومسؤولي التوظيف بأسلوب يناسب هدفك.",s6_title:"تنظيم البحث عن عمل",s6_text:"إرشادات لاختيار عروض العمل المناسبة وتنظيم الترشيحات ومتابعة الطلبات.",s7_title:"التحضير لمقابلات العمل",s7_text:"التدرب على الأسئلة الشائعة وتعلّم عرض نقاط قوتك وإجاباتك بوضوح وثقة.",s8_title:"ورشات ودورات تطبيقية قصيرة",s8_text:"محتوى عملي لتطوير مهارات البحث عن عمل والاستعداد للترشح لفرص خارج الوطن.",training_title:"تعلّم كيف تستعد لترشيحاتك بشكل أفضل",training_text:"استفد من إرشادات وورشات تطبيقية لفهم البحث عن عمل وتطوير استقلاليتك في تنظيم خطواتك.",training_button:"استفسر عن الدورات ↗",
+      method_eyebrow:"منهجيتنا",method_title:"مرافقة مهنية تنطلق من هدفك.",method_text1:"ينبغي أن يعكس ملف ترشحك حقيقتك: مهاراتك وخبراتك ومشاريعك وإمكاناتك.",method_text2:"نعتمد على التخصيص والوضوح والانسجام، مع إبراز مسارك بأمانة دون اختلاق خبرات أو مؤهلات.",method_button:"لنتحدث عن مشروعك ←",step1_title:"فهم هدفك",step1_text:"تحديد المنصب أو القطاع أو نوع الفرصة التي تستهدفها.",step2_title:"تحديد نقاط قوتك",step2_text:"إبراز المهارات والخبرات الأكثر ارتباطًا بهدفك.",step3_title:"إعداد أدواتك",step3_text:"العمل على الوثائق والعناصر اللازمة لترشحك.",step4_title:"تنظيم خطواتك القادمة",step4_text:"الخروج بأدوات أوضح وخطة أنسب لمتابعة بحثك عن العمل.",contact_eyebrow:"خطوتك القادمة تبدأ هنا",contact_title:"لنتحدث عن مشروعك المهني.",contact_text:"أخبرنا عن هدفك واحتياجاتك لنحدد الخدمات الأنسب لحالتك. الأسعار متاحة عند الطلب.",email_button:"تواصل عبر البريد الإلكتروني ↗",instagram_button:"تابعنا على Instagram ↗",footer_text:"أدوات مهنية تساعدك على الاستعداد لمستقبلك.",copyright:"© 2026 Lati’s Gateway. جميع الحقوق محفوظة.",disclaimer:"تساعدك خدماتنا على تحسين ملف ترشحك، لكنها لا تضمن الحصول على وظيفة أو عقد عمل أو تأشيرة."
+    }
+  };
+  function setLanguage(lang){
+    const dictionary=translations[lang]||translations.fr;
+    document.documentElement.lang=lang;
+    document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+    document.title=lang==='ar'?'Lati’s Gateway | المرافقة المهنية':"Lati's Gateway | Accompagnement professionnel";
+    document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.getAttribute('data-i18n');if(dictionary[key]!==undefined)el.textContent=dictionary[key];});
+    document.getElementById('btn-fr').classList.toggle('active',lang==='fr');
+    document.getElementById('btn-ar').classList.toggle('active',lang==='ar');
+    document.getElementById('btn-fr').setAttribute('aria-pressed',String(lang==='fr'));
+    document.getElementById('btn-ar').setAttribute('aria-pressed',String(lang==='ar'));
+  }
+  document.getElementById('btn-fr').addEventListener('click',()=>setLanguage('fr'));
+  document.getElementById('btn-ar').addEventListener('click',()=>setLanguage('ar'));
+</script>
+</body>
+</html>
